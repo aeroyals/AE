@@ -22,22 +22,22 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
     let uptime = clockString(_uptime)
     let tags = {
       'main': 'Main',
-      'about': 'About and Info',
-      'xp': 'Exp & Limit',
+      'about': 'Info',
+      'xp': 'Limit',
       'sticker': 'Sticker',
       'kerang': 'Kerang Ajaib',
       'quotes': 'Quotes',
       'admin': 'Admin',
       'group': 'Group',
       'internet': 'Internet',
-      'game': 'My Game',
+      'game': 'Game',
       'downloader': 'Downloader',
       'tools': 'Tools',
       'jadibot': 'Jadi Bot',
       'owner': 'Owner',
       'host': 'Host',
       'advanced': 'Advanced',
-      'info': 'Info',
+      'info': 'about',
       '': 'No Category',
     }
     for (let plugin of Object.values(global.plugins))
@@ -60,10 +60,10 @@ let handler  = async (m, { conn, usedPrefix: _p }) => {
           if (menu.help) groups[tag].push(menu)
     }
     conn.menu = conn.menu ? conn.menu : {}
-    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*Total:* %exp XP\n\n*Limit Anda: %limit*\n\n*Tanggal: %week, %date*\n *Waktu:%time*\nUptime: %uptime\n\n *Github:*\nhttps://github.com/Arya274/Arya-DN\n _Script Bye: @Nurotomo_\n%readmore`
-    let header = conn.menu.header || '╭─「 %category 」'
-    let body   = conn.menu.body   || '│➥ %cmd%islimit'
-    let footer = conn.menu.footer || '╰────\n'
+    let before = conn.menu.before || `${conn.getName(conn.user.jid)} • Bot\n\nHai, %name!\n*Total:* %exp XP\n\n*Limit Anda: %limit*\n\n*Tanggal: %week, %date*\n Waktu:%time\nUptime: %uptime\n\n Github: https://github.com/aeroyals/AE\n%readmore`
+    let header = conn.menu.header || '╭⟢ %category '
+    let body   = conn.menu.body   || '╭─────────\n┝❑ %cmd%islimit'
+    let footer = conn.menu.footer || '╭─────────\n'
     let after  = conn.menu.after  || conn.user.jid == global.conn.user.jid ? '' : `\nPowered by https://wa.me/${global.conn.user.jid.split`@`[0]}`
     let _text  = before + '\n'
     for (let tag in groups) {
